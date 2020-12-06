@@ -6,9 +6,9 @@ import {
   Link
 } from "react-router-dom";
 
-import { Result } from '../pages/result';
-import { About } from '../pages/about';
-import { Main } from '../pages/main';
+import { Result } from './pages/result';
+import { About } from './pages/about';
+import { Main } from './pages/main';
 
 
 export default function App() {
@@ -21,7 +21,7 @@ export default function App() {
               <Link to="/">Main</Link>
             </li>
             <li>
-              <Link to="/users">Result</Link>
+              <Link to="/result">Result</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
