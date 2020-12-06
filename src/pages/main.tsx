@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from "react";
 import {Button, Input, Layout} from 'antd';
 
 const {TextArea} = Input;
-const {Header, Content, Footer} = Layout;
+const {Content} = Layout;
 
 
 export function Main() {

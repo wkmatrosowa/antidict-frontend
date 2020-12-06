@@ -12,13 +12,10 @@ export function AppMenu() {
     return (
         <Tabs defaultActiveKey="main" onChange={handleClick} centered={true}>
             <TabPane tab="Главная" key="main">
-                Главная
             </TabPane>
             <TabPane tab="Результат" key="result">
-                Результат
             </TabPane>
             <TabPane tab="О проекте" key="about">
-                О проекте
             </TabPane>
         </Tabs>
     );
