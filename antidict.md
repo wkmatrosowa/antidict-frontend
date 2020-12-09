@@ -15,9 +15,10 @@
 npm start
 ```
 
-## Ссылки
+## Материалы
 
 * [useHistory](https://reactrouter.com/web/api/Hooks/usehistory) – для 
 получения объекта, с помощью которого можно переходить между страницами
 * [useState](https://ru.reactjs.org/docs/hooks-state.html) – доступ к состоянию React (хук).
 * [Деструктуризация](https://learn.javascript.ru/destructuring)
+* [Видео про React](https://learn.javascript.ru/screencast/react)
