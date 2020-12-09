@@ -22,3 +22,4 @@ npm start
 * [useState](https://ru.reactjs.org/docs/hooks-state.html) – доступ к состоянию React (хук).
 * [Деструктуризация](https://learn.javascript.ru/destructuring)
 * [Видео про React](https://learn.javascript.ru/screencast/react)
+* [Proxying API Requests in Development](https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually)
