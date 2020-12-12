@@ -8,7 +8,13 @@ const {Content} = Layout;
 export function Main() {
     const [text, setText] = useState('');
     const onClick = () => {
-        return (console.log(text));
+        const response = fetch('/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({"jsonrpc": "2.0", "method": "process", "params": {"text": text}, "id": 1})
+        });
     }
 
     const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {

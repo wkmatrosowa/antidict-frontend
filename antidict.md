@@ -23,3 +23,9 @@ npm start
 * [Деструктуризация](https://learn.javascript.ru/destructuring)
 * [Видео про React](https://learn.javascript.ru/screencast/react)
 * [Proxying API Requests in Development](https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually)
+* [Спецификация JSONRPC](https://www.jsonrpc.org/specification)
+
+## Решение проблем
+> Access to fetch at 'http://localhost:5001/' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin
+
+Решение через настройку [прокси](https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually)
