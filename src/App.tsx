@@ -1,7 +1,6 @@
 import React from "react";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
-import {Result} from './pages/result';
 import {About} from './pages/about';
 import {Main} from './pages/main';
 import {AppMenu} from "./components/app-menu";
@@ -16,9 +15,6 @@ export default function App() {
             <Switch>
                 <Route exact path="/main">
                     <Main/>
-                </Route>
-                <Route path="/result">
-                    <Result/>
                 </Route>
                 <Route path="/about">
                     <About/>
