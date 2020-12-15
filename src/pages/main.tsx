@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from "react";
-import {Button, Input, Layout} from "antd";
+import {Button, Card, Input, Layout, Space} from "antd";
 import Highlighter from "react-highlight-words";
 import './main.css';
 
@@ -8,8 +8,9 @@ const {Content} = Layout;
 
 
 export function Main() {
-    const [text, setText] = useState('Этот проект Центра внутреннего мониторинга уже давно помогает университету');
-    const [searchWords, setSearchWords] = useState<string[]>([])
+    const [text, setText] = useState('');
+    const [searchWords, setSearchWords] = useState<string[]>([]);
+    const [highlightedText, setHighlightedText] = useState<string>('');
     const onClick = () => {
         const response = fetch('/api', {
             method: 'POST',
@@ -27,6 +28,7 @@ export function Main() {
                     }
                 }
                 setSearchWords(arr);
+                setHighlightedText(text)
                 console.log(response.result)
             });
     }
@@ -35,20 +37,25 @@ export function Main() {
         setText(event.target.value);
     }
     return (
-        <Layout className="text-input">
-            <Content style={{textAlign: 'center'}}>
-                <TextArea rows={10} style={{width: 500}} value={text} onChange={onChange}/>
-            </Content>
-            <Content style={{textAlign: 'center', paddingLeft: 788, width: 100}}>
-                <Button type="primary" onClick={onClick}>Разобрать</Button>
-            </Content>
-            <Content style={{textAlign: 'center'}}>
-                <Highlighter
-                    highlightClassName="highlightClassName"
-                    searchWords={searchWords}
-                    autoEscape={true}
-                    textToHighlight={text.toLowerCase()}/>
-            </Content>
+        <Layout className="text-input-output" style={{textAlign: 'center'}}>
+            <Space direction="vertical" size={"middle"}>
+                <Content className="text-input" style={{textAlign: 'center'}}>
+                    <TextArea rows={10} style={{width: 500}} value={text} onChange={onChange}/>
+                </Content>
+                <Content className="button" style={{textAlign: 'right', paddingLeft: 786, width: 100}}>
+                    <Button type="primary" onClick={onClick}>Разобрать</Button>
+                </Content>
+                <Content className="text-output" style={{textAlign: 'left', paddingLeft: 388}}>
+                    <Card style={{width: 500, borderStyle: 'solid'}} bordered={true}>
+                        <Highlighter
+                            highlightClassName="highlightClassName"
+                            searchWords={searchWords}
+                            autoEscape={true}
+                            caseSensitive={false}
+                            textToHighlight={highlightedText}/>
+                    </Card>
+                </Content>
+            </Space>
         </Layout>
     );
 }
