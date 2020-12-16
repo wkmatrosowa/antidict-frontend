@@ -10,6 +10,7 @@ const {Content} = Layout;
 export function Main() {
     const [text, setText] = useState('');
     const [searchWords, setSearchWords] = useState<string[]>([]);
+    const [categories, setCategories] = useState<Record<string, string>>({});
     const [highlightedText, setHighlightedText] = useState<string>('');
     const onClick = () => {
         const response = fetch('/api', {
@@ -21,21 +22,29 @@ export function Main() {
         })
             .then(response => response.json())
             .then(response => {
-                const arr = []
-                for (const el of response.result) {
-                    if (el.is_loanword === 1) {
-                        arr.push(el.word)
+                const arrWords = []
+                const arrCategories: Record<string, string> = {}
+                for (const element of response.result) {
+                    for (const el of element.analysis) {
+                        const category = el.categories
+                        const word = el.word
+                        arrWords.push(word)
+                        arrCategories[word] = category.join('')
                     }
                 }
-                setSearchWords(arr);
-                setHighlightedText(text)
-                console.log(response.result)
+                // console.log(arrWords)
+                setSearchWords(arrWords);
+                setHighlightedText(text);
+                // console.log(arrCategories)
+                setCategories(arrCategories);
             });
     }
 
     const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         setText(event.target.value);
     }
+    // console.log(searchWords);
+    // console.log(categories);
     return (
         <Layout className="text-input-output" style={{textAlign: 'center'}}>
             <Space direction="vertical" size={"middle"}>
@@ -52,6 +61,10 @@ export function Main() {
                             searchWords={searchWords}
                             autoEscape={true}
                             caseSensitive={false}
+                            highlightTag={({children}) => (
+                                <span
+                                    className={"highlighted-text color" + categories[children.toString()]}>{children}</span>
+                            )}
                             textToHighlight={highlightedText}/>
                     </Card>
                 </Content>

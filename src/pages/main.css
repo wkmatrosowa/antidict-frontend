@@ -1,3 +1,22 @@
 .highlightClassName {
     background-color: plum;
 }
+
+.colorloanword {
+  background-color: cornflowerblue;
+}
+.colorobscene {
+  background-color: indianred;
+}
+.colorexpressive {
+  background-color: yellow;
+}
+.colorloanwordobscene {
+  background-color: violet;
+}
+.colorloanwordexpressive {
+  background-color: green;
+}
+.colorobsceneexpressive {
+  background-color: orange;
+}
