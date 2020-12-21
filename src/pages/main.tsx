@@ -35,7 +35,7 @@ export function Main() {
                 // console.log(arrWords)
                 setSearchWords(arrWords);
                 setHighlightedText(text);
-                // console.log(arrCategories)
+                console.log(arrCategories)
                 setCategories(arrCategories);
             });
     }
