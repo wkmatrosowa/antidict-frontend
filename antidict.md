@@ -43,3 +43,4 @@ sudo docker build -t antidictfront .
 ```
 sudo docker run -p 3000:3000 antidictfront
 ```
+
