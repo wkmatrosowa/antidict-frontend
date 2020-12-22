@@ -30,3 +30,16 @@ npm start
 > Access to fetch at 'http://localhost:5001/' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin
 
 Решение через настройку [прокси](https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually)
+
+## Docker
+
+### Build
+
+```
+sudo docker build -t antidictfront .
+```
+
+### Run
+```
+sudo docker run -p 3000:3000 antidictfront
+```
