@@ -51,11 +51,11 @@ export function Main() {
                 <Content className="text-input" style={{textAlign: 'center'}}>
                     <TextArea rows={10} style={{width: 500}} value={text} onChange={onChange}/>
                 </Content>
-                <Content className="button" style={{textAlign: 'right', paddingLeft: 786, width: 100}}>
+                <Content className="button" style={{margin: '0 auto', textAlign: 'center', width: 100}}>
                     <Button type="primary" onClick={onClick}>Разобрать</Button>
                 </Content>
-                <Content className="text-output" style={{textAlign: 'left', paddingLeft: 388}}>
-                    <Card style={{width: 500, borderStyle: 'solid'}} bordered={true}>
+                <Content className="text-output" style={{textAlign: 'left'}}>
+                    <Card style={{margin: '0 auto', width: 500, borderStyle: 'solid'}} bordered={true}>
                         <Highlighter
                             highlightClassName="highlightClassName"
                             searchWords={searchWords}
