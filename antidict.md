@@ -30,6 +30,7 @@ npm start
     * [How to deploy create-react-app in Docker with docker-compose with NGINX as reverse-proxy](https://medium.com/@askeralim/how-to-deploy-create-react-app-in-docker-with-docker-compose-with-nginx-reverse-proxy-f26c98623f5)
     * [Dockerizing ReactJS, NodeJS, NGINX using Docker](https://dev.to/subhransu/nevertheless-subhransu-maharana-coded-5eam)
     * [Dockerizing a React App](https://mherman.org/blog/dockerizing-a-react-app/)
+    * [Примеры образов и compose](https://gist.github.com/yossisp/b63ab99613ada9ca3cbadb8a4dbfca33)
 
 ## Решение проблем
 > Access to fetch at 'http://localhost:5001/' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin
