@@ -13,7 +13,7 @@ export function Main() {
     const [categories, setCategories] = useState<Record<string, string>>({});
     const [highlightedText, setHighlightedText] = useState<string>('');
     const onClick = () => {
-        const response = fetch('/api', {
+        const response = fetch('/api/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
