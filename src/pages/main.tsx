@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from "react";
-import {Button, Card, Input, Layout, Space} from "antd";
+import {Button, Card, Col, Divider, Input, Layout, List, Row, Space} from "antd";
 import Highlighter from "react-highlight-words";
 import './main.css';
 
@@ -43,11 +43,44 @@ export function Main() {
     const onChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         setText(event.target.value);
     }
+
+    const legend = [
+        'заимствование',
+        'обсценная лексика',
+        'экспрессивная лексика',
+        'обсценное заимствование',
+        'экспрессивная заимствованная лексика',
+        'обсценная экспрессивная лексика'
+    ];
+
+    const colorMap: any = {
+        'заимствование': 'cornflowerblue',
+        'обсценная лексика': 'indianred',
+        'экспрессивная лексика': 'yellow',
+        'обсценное заимствование': 'violet',
+        'экспрессивная заимствованная лексика': 'green',
+        'обсценная экспрессивная лексика': 'orange'
+
+    }
     // console.log(searchWords);
     // console.log(categories);
     return (
-        <Layout className="text-input-output" style={{textAlign: 'center'}}>
+        <Layout className="text-input-output">
             <Space direction="vertical" size={"middle"}>
+                <div className="about-on-main">
+                    <p>Мы рады приветствовать вас на официальном сайте проекта Antidict. Наш проект посвящён автоматическому
+                        распознаванию англоязычных заимствований, экспрессивных форм и намеренных искажений (эрративов) в
+                        тексте. В основе нашего механизма лежит многоклассовый классификатор, изначально обученный для
+                        определения этих типов слов на корпусе ГИКРЯ. Для обучения распознаванию англоязычных заимствований
+                        наш классификатор был обучен на словаре Дьякова. Для классификации эрративов и экспрессивных слов
+                        нами были собраны отдельные датасеты, на которых классификатор обучался. Эрративы рассматриваются
+                        нами как подкласс слов с экспрессивной окраской, которые также включают в себя слова с
+                        экспрессивными аффиксами и мат.</p>
+                    <p>Проект представлен студентами магистратуры школы лингвистики Национального исследовательского
+                        университета "Высшая школа экономики". Разработка проекта проходила в 2019-2020 годах. В данный
+                        момент над совершенствованием Antidict трудятся 5 человек: Антон Вахранёв, Алексей Доркин, Ирина
+                        Дьячкова, Лидия Остякова и Владислава Смирнова. Надеемся, наш проект будет полезен для вас!</p>
+                </div>
                 <Content className="text-input" style={{textAlign: 'center'}}>
                     <TextArea rows={10} style={{width: 500}} value={text} onChange={onChange}/>
                 </Content>
@@ -55,18 +88,39 @@ export function Main() {
                     <Button type="primary" onClick={onClick}>Разобрать</Button>
                 </Content>
                 <Content className="text-output" style={{textAlign: 'left'}}>
-                    <Card style={{margin: '0 auto', width: 500, borderStyle: 'solid'}} bordered={true}>
-                        <Highlighter
-                            highlightClassName="highlightClassName"
-                            searchWords={searchWords}
-                            autoEscape={true}
-                            caseSensitive={false}
-                            highlightTag={({children}) => (
-                                <span
-                                    className={"highlighted-text color" + categories[children.toString()]}>{children}</span>
-                            )}
-                            textToHighlight={highlightedText}/>
-                    </Card>
+                    <Row gutter={16}>
+                        <Col span={8}>
+                            <Card style={{margin: '0 auto', width: 500, borderStyle: 'solid'}} bordered={true}>
+                                <Highlighter
+                                    highlightClassName="highlightClassName"
+                                    searchWords={searchWords}
+                                    autoEscape={true}
+                                    caseSensitive={false}
+                                    highlightTag={({children}) => (
+                                        <span
+                                            className={"highlighted-text color" + categories[children.toString()]}>{children}</span>
+                                    )}
+                                    textToHighlight={highlightedText}/>
+                            </Card>
+                        </Col>
+                        <Col span={8}>
+                            <Card style={{margin: '0 auto', width: 400, borderStyle: 'solid'}}
+                                  bordered={true}>
+                                <Divider orientation="left">Обозначения</Divider>
+                                <List
+                                    size="small"
+                                    bordered
+                                    dataSource={legend}
+                                    renderItem={item => (
+                                        <List.Item>
+                                            <div className={"indicator " + colorMap[item]}/>
+                                            {item}
+                                        </List.Item>
+                                    )}
+                                />
+                            </Card>
+                        </Col>
+                    </Row>
                 </Content>
             </Space>
         </Layout>

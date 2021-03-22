@@ -1,3 +1,12 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.about-on-main  {
+    text-align: left;
+}
+
 .highlightClassName {
     background-color: plum;
 }
@@ -19,4 +28,33 @@
 }
 .colorobsceneexpressive {
   background-color: orange;
+}
+
+.indicator {
+    width: 20px;
+    height: 20px;
+}
+
+.indicator.cornflowerblue {
+    background-color: cornflowerblue;
+}
+
+.indicator.indianred {
+    background-color: indianred;
+}
+
+.indicator.yellow {
+    background-color: yellow;
+}
+
+.indicator.violet {
+    background-color: violet;
+}
+
+.indicator.green {
+    background-color: green;
+}
+
+.indicator.orange {
+    background-color: orange;
 }
