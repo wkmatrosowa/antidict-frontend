@@ -68,12 +68,17 @@ export function Main() {
         <Layout className="text-input-output">
             <Space direction="vertical" size={"middle"}>
                 <div className="about-on-main">
-                    <p>Мы рады приветствовать вас на официальном сайте проекта Antidict. Наш проект посвящён автоматическому
-                        распознаванию англоязычных заимствований, экспрессивных форм и намеренных искажений (эрративов) в
+                    <p>Мы рады приветствовать вас на официальном сайте проекта Antidict. Наш проект посвящён
+                        автоматическому
+                        распознаванию англоязычных заимствований, экспрессивных форм и намеренных искажений (эрративов)
+                        в
                         тексте. В основе нашего механизма лежит многоклассовый классификатор, изначально обученный для
-                        определения этих типов слов на корпусе ГИКРЯ. Для обучения распознаванию англоязычных заимствований
-                        наш классификатор был обучен на словаре Дьякова. Для классификации эрративов и экспрессивных слов
-                        нами были собраны отдельные датасеты, на которых классификатор обучался. Эрративы рассматриваются
+                        определения этих типов слов на корпусе ГИКРЯ. Для обучения распознаванию англоязычных
+                        заимствований
+                        наш классификатор был обучен на словаре Дьякова. Для классификации эрративов и экспрессивных
+                        слов
+                        нами были собраны отдельные датасеты, на которых классификатор обучался. Эрративы
+                        рассматриваются
                         нами как подкласс слов с экспрессивной окраской, которые также включают в себя слова с
                         экспрессивными аффиксами и мат.</p>
                     <p>Проект представлен студентами магистратуры школы лингвистики Национального исследовательского
@@ -88,9 +93,9 @@ export function Main() {
                     <Button type="primary" onClick={onClick}>Разобрать</Button>
                 </Content>
                 <Content className="text-output" style={{textAlign: 'left'}}>
-                    <Row gutter={16}>
-                        <Col span={8}>
-                            <Card style={{width: 500, borderStyle: 'solid'}} bordered={true}>
+                    <Row gutter={24} justify="center">
+                        <Col span={15}>
+                            <Card style={{width: 600, borderStyle: 'solid', marginLeft: 'auto'}} bordered={true}>
                                 <Highlighter
                                     highlightClassName="highlightClassName"
                                     searchWords={searchWords}
@@ -103,7 +108,7 @@ export function Main() {
                                     textToHighlight={highlightedText}/>
                             </Card>
                         </Col>
-                        <Col span={8}>
+                        <Col span={9}>
                             <Card style={{width: 300, borderStyle: 'solid'}}
                                   bordered={true}>
                                 <Divider orientation="left">Обозначения</Divider>
@@ -113,8 +118,10 @@ export function Main() {
                                     dataSource={legend}
                                     renderItem={item => (
                                         <List.Item>
-                                            <div className={"indicator " + colorMap[item]}/>
-                                            {item}
+                                            <div className="legend">
+                                                <div className={"indicator " + colorMap[item]}/>
+                                                {item}
+                                            </div>
                                         </List.Item>
                                     )}
                                 />

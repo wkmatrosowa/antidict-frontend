@@ -33,7 +33,9 @@
 
 .indicator {
     width: 20px;
+    min-width: 20px;
     height: 20px;
+    margin-right: 16px;
 }
 
 .indicator.cornflowerblue {
@@ -58,4 +60,8 @@
 
 .indicator.orange {
     background-color: orange;
+}
+
+.legend {
+    display: flex;
 }
