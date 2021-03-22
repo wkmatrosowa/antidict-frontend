@@ -90,7 +90,7 @@ export function Main() {
                 <Content className="text-output" style={{textAlign: 'left'}}>
                     <Row gutter={16}>
                         <Col span={8}>
-                            <Card style={{margin: '0 auto', width: 500, borderStyle: 'solid'}} bordered={true}>
+                            <Card style={{width: 500, borderStyle: 'solid'}} bordered={true}>
                                 <Highlighter
                                     highlightClassName="highlightClassName"
                                     searchWords={searchWords}
@@ -104,7 +104,7 @@ export function Main() {
                             </Card>
                         </Col>
                         <Col span={8}>
-                            <Card style={{margin: '0 auto', width: 400, borderStyle: 'solid'}}
+                            <Card style={{width: 300, borderStyle: 'solid'}}
                                   bordered={true}>
                                 <Divider orientation="left">Обозначения</Divider>
                                 <List
