@@ -12,6 +12,7 @@ export function Main() {
     const [searchWords, setSearchWords] = useState<string[]>([]);
     const [categories, setCategories] = useState<Record<string, string>>({});
     const [highlightedText, setHighlightedText] = useState<string>('');
+    const [wordsByCategory, setWordsByCategory] = useState<Record<string, string[]>>({})
     const onClick = () => {
         const response = fetch('/api/', {
             method: 'POST',
@@ -30,12 +31,15 @@ export function Main() {
                         const word = el.word
                         arrWords.push(word)
                         arrCategories[word] = category.join('')
+
+                        for (const cat of category) {
+                            if (!wordsByCategory[cat]) wordsByCategory[cat] = [];
+                            wordsByCategory[cat].push(word);
+                        }
                     }
                 }
-                // console.log(arrWords)
                 setSearchWords(arrWords);
                 setHighlightedText(text);
-                console.log(arrCategories)
                 setCategories(arrCategories);
             });
     }
@@ -61,9 +65,16 @@ export function Main() {
         'экспрессивная заимствованная лексика': 'green',
         'обсценная экспрессивная лексика': 'orange'
 
+    };
+
+     const categoriesMap: any = {
+        'loanword': 'Заимствования: \n',
+        'expressive': 'Экспрессивная лексика: \n',
+        'obscene': 'Обсценная лексика: \n',
+
     }
-    // console.log(searchWords);
-    // console.log(categories);
+
+
     return (
         <Layout className="text-input-output">
             <Space direction="vertical" size={"middle"}>
@@ -128,6 +139,22 @@ export function Main() {
                             </Card>
                         </Col>
                     </Row>
+                    <Card style={{width: 600, borderStyle: 'solid', marginLeft: 'auto'}} bordered={true}>
+                                <Divider orientation="left">Списки слов по категориям</Divider>
+                                <List
+                                    size="small"
+                                    bordered
+                                    dataSource={Object.entries(wordsByCategory)}
+                                    renderItem={([item, words]) => (
+                                        <List.Item>
+                                            <div className="search-words">
+                                                {categoriesMap[item]}
+                                                {words.join(', ')}
+                                            </div>
+                                        </List.Item>
+                                    )}
+                                />
+                            </Card>
                 </Content>
             </Space>
         </Layout>

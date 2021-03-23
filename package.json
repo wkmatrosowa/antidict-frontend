@@ -50,5 +50,5 @@
     "@types/react-highlight-words": "^0.16.1",
     "@types/react-router-dom": "^5.1.6"
   },
-  "proxy": "http://localhost:5001"
+  "proxy": "http://localhost:5000"
 }
