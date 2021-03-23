@@ -41,6 +41,7 @@ export function Main() {
                 setSearchWords(arrWords);
                 setHighlightedText(text);
                 setCategories(arrCategories);
+                setWordsByCategory(wordsByCategory);
             });
     }
 
